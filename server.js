@@ -1,3 +1,5 @@
+const db = require('./db/index.js');
+
 var express = require('express')
 var app = express()
 
@@ -10,6 +12,13 @@ app.get('/home', function (req, res) {
     res.send("zeljanaaaa")
 })
 
+db.none('INSERT INTO users(first_name) VALUES($1)', ['John'])
+    .then(() => {
+        // success;
+    })
+    .catch(error => {
+        // error;
+    });
 app.listen(3000, function() {
     console.log("listennn")
 })
