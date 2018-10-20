@@ -10,9 +10,11 @@ app.use(bodyParser.urlencoded({
 }));
 
 //routes
+const login    = require('./routes/login-route');
 const register = require('./routes/register-route');
 const usersRoutes = require('./routes/users-route');
-    
+
+app.use(login);
 app.use(register);
 app.use(usersRoutes);
 app.use(cors);
