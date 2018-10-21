@@ -4,7 +4,7 @@ const db = require('../db/index.js');
 const authMiddleware = require('../middlewares/auth-middleware');
 
 
-router.get('/user/:id', authMiddleware, (req, res) => {
+router.get('/profile/:id', authMiddleware, (req, res) => {
     db.one({
         text: 'SELECT * FROM users WHERE id = $1', // can also be a QueryFile object
         values: [req.params.id]
