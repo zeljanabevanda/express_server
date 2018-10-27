@@ -9,9 +9,5 @@ const cn = {
 };
 
 const db = pgp(cn);
-db.one('SELECT $1 AS value ', 123).then((data) => {
-    console.log('data', data.value);
-}).catch((err) => {
-    console.log('eror', err);
-});
+
 module.exports = db;
